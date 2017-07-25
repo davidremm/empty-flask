@@ -1,0 +1,7 @@
+# include app requirements
+-r ../requirements.txt
+
+# Testing
+coverage==3.7.1
+flake8==2.3.0
+mock==1.0.1

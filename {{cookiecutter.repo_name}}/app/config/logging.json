@@ -1,0 +1,59 @@
+{
+  "version" : 1,
+  "formatters" : {
+    "console" : {
+      "format" : "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    },
+    "simple" : {
+      "format" : "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    }
+  },
+
+  "handlers" : {
+    "console" : {
+      "class" : "logging.StreamHandler",
+      "level" : "DEBUG",
+      "formatter" : "console",
+      "stream" : "ext://sys.stdout"
+    },
+    "api" : {
+      "class" : "logging.handlers.TimedRotatingFileHandler",
+      "level" : "DEBUG",
+      "when" : "MIDNIGHT",
+      "utc" : true,
+      "formatter" : "simple",
+      "filename" : "api.log"
+    },
+    "error" : {
+      "class" : "logging.handlers.TimedRotatingFileHandler",
+      "level" : "DEBUG",
+      "when" : "MIDNIGHT",
+      "utc" : true,
+      "formatter" : "simple",
+      "filename" : "errors.log"
+    }
+  },
+
+  "loggers" : {
+    "api" : {
+      "level" : "DEBUG",
+      "handlers" : ["api"],
+      "propagate" : "no"
+    },
+    "error" : {
+      "level" : "DEBUG",
+      "handlers" : ["error"],
+      "propagate" : "no"
+    },
+    "console" : {
+      "level" : "DEBUG",
+      "handlers" : ["console"],
+      "propagate" : "no"
+    }
+  },
+
+  "root" : {
+    "level" : "DEBUG",
+    "handlers": ["api" , "console"]
+  }
+}

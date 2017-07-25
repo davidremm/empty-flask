@@ -1,0 +1,18 @@
+# .coveragerc to control coverage.py
+[run]
+branch = True
+omit =
+    ./app/config/*
+
+[report]
+ignore_errors = True
+exclude_lines =
+    # Don't include imports in coverage report
+    import*
+    from*
+
+[html]
+directory = coverage_report
+
+[xml]
+directory = coverage_report

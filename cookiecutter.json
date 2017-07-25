@@ -1,0 +1,16 @@
+{
+    "project_name": "project_name",
+    "repo_name": "{{ cookiecutter.project_name|lower|replace(' ', '_')|replace('-', '_') }}",
+    "team_name": "team_name",
+    "author_name": "Your Name",
+    "email": "Your email",
+    "description": "A short description of the project.",
+    "domain_name": "example.com",
+    "version": "0.0.1",
+    "timezone": "UTC",
+    "now": "2016-01-01",
+    "year": "{{ cookiecutter.now[:4] }}",
+    "_copy_without_render": [
+        "*.html"
+    ]
+}

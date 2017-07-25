@@ -1,0 +1,28 @@
+{% extends "base_noreact.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block body %}
+    <h2>Login</h2>
+
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <form role="form" action="{{ url_for('.login', next=next) }}" method="post">
+                {{ form.csrf_token }}
+
+                <div class="form-group">
+                    {{ form.username.label }}
+                    {{ form.username(class_="form-control", placeholder="(ex. user@example.com)") }}
+                </div>
+                <div class="form-group">
+                    {{ form.password.label }}
+                    {{ form.password(class_="form-control") }}
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+{% endblock %}
